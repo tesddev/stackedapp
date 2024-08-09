@@ -1,3 +1,3 @@
 # stackedapp
 
-A new Flutter project.
+A Flutter project build using Stacked framework.
