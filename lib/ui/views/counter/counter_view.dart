@@ -14,7 +14,7 @@ class CounterView extends StackedView<CounterViewModel> {
   ) {
     return Scaffold(
       floatingActionButton:
-        FloatingActionButton(onPressed: viewModel.incrementCounter),
+          FloatingActionButton(onPressed: viewModel.incrementCounter),
       body: Center(
         child: Text(
           viewModel.counter.toString(),
