@@ -15,7 +15,10 @@ class LoginViewModel extends BaseViewModel {
     setBusy(true);
     bool success = await _authenticationService.login(username, password);
     if (success) {
-      _navigationService.replaceWith(Routes.homeView);
+      _navigationService.replaceWith(
+        Routes.homeView,
+        arguments: 10,
+      );
     } else {
       showDialog();
     }
@@ -24,7 +27,6 @@ class LoginViewModel extends BaseViewModel {
 
   void showDialog() {
     _dialogService.showDialog(
-      // variant: DialogType.infoAlert,
       title: 'Error!',
       description: 'Username or password incorrect.',
     );
