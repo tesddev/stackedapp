@@ -1,6 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-
 // class AuthenticationService {
 //   bool userLoggedIn() {
 //     return false;
@@ -8,7 +7,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 // }
 
 class AuthenticationService {
-
   final _storage = const FlutterSecureStorage();
 
   // This method checks if the user is logged in, could be from shared preferences, secure storage, etc.
@@ -36,5 +34,4 @@ class AuthenticationService {
     print("islogged in not set to $trueOrFalse here");
     await _storage.write(key: 'isLoggedIn', value: trueOrFalse);
   }
-  
 }
