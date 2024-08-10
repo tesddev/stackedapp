@@ -13,7 +13,7 @@ class StartupViewModel extends BaseViewModel {
   Future runStartupLogic() async {
     Future<bool> isLoggedIn = _authenticationService.userLoggedIn();
     if (await isLoggedIn) {
-      _navigationService.replaceWith(Routes.homeView);
+      _navigationService.replaceWith(Routes.homeView, arguments: HomeViewArguments(startingIndex: 10,));
       print("home shown");
     } else {
       _navigationService.replaceWith(Routes.loginView);
