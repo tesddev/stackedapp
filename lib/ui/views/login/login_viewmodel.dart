@@ -17,7 +17,7 @@ class LoginViewModel extends BaseViewModel {
     if (success) {
       _navigationService.replaceWith(
         Routes.homeView,
-        arguments: 10,
+        arguments: const HomeViewArguments(startingIndex: 10),
       );
     } else {
       showDialog();
