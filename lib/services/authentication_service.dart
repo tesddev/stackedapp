@@ -11,32 +11,30 @@ class AuthenticationService {
 
   final _storage = const FlutterSecureStorage();
 
-  Future<void> persistLogin() async {
-    await _storage.write(key: 'isLoggedIn', value: 'true');
-  }
   // This method checks if the user is logged in, could be from shared preferences, secure storage, etc.
   Future<bool> userLoggedIn() async {
     String? isLoggedIn = await _storage.read(key: 'isLoggedIn');
     // ignore: avoid_print
-    print(isLoggedIn);
+    print("$isLoggedIn here");
     return isLoggedIn == 'true' ? true : false;
   }
 
   // This method could handle login logic and save the user state
   Future<bool> login(String username, String password) async {
-    // Implement your login logic here, such as API calls
-    // If successful, persist the login state
     bool isValid = false;
     if (password == '1234') {
-      persistLogin;
+      setIsLoginTo('true');
       isValid = true;
+    } else {
+      setIsLoginTo('false');
     }
-
     return isValid;
   }
 
-  Future<void> setIsLoginToFalse() async {
-    await _storage.write(key: 'isLoggedIn', value: 'false');
+  Future<void> setIsLoginTo(String trueOrFalse) async {
+    // ignore: avoid_print
+    print("islogged in not set to $trueOrFalse here");
+    await _storage.write(key: 'isLoggedIn', value: trueOrFalse);
   }
   
 }
